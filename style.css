@@ -1,0 +1,512 @@
+/*
+Theme Name: Simplicity
+Author: Travis J. Nice
+Author URI: http://www.everydayspeeches.com/
+Description: I'm sick of themes that don't deliver, so I made my own to get exactly what I want.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: blue, minimal, boxed
+Text Domain: simplicity
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+article, aside, figure, footer, header, nav, section, details, summary {display: block;}
+
+/* Handle box-sizing while better addressing child elements: 
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+	box-sizing: border-box;
+}
+
+*, 
+*:before, 
+*:after {
+	box-sizing: inherit;
+}
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+img,
+object,
+embed {max-width: 100%;}
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {overflow-y: scroll;}
+
+/* we use a lot of ULs that aren't bulleted. 
+	don't forget to restore the bullets within content. */
+ul {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before, 
+blockquote:after, 
+q:before, 
+q:after {content: ''; content: none;}
+
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+del {text-decoration: line-through;}
+
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: collapse; border-spacing: 0;}
+th {font-weight: bold; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+input, select {vertical-align: middle;}
+
+pre {
+    white-space: pre; /* CSS2 */
+    white-space: pre-wrap; /* CSS 2.1 */
+    white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+    word-wrap: break-word; /* IE */
+}
+
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom;}
+.ie7 input[type="checkbox"] {vertical-align: baseline;}
+.ie6 input {vertical-align: text-bottom;}
+
+select, input, textarea {font: 99% sans-serif;}
+
+table {font-size: inherit; font: 100%;}
+
+small {font-size: 85%;}
+
+strong {font-weight: bold;}
+
+td, td img {vertical-align: top;} 
+
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable,
+label, 
+input[type=button], 
+input[type=submit], 
+input[type=file], 
+button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/* make buttons play nice in IE */
+button,
+input[type=button] {width: auto; overflow: visible;}
+ 
+/* scale images in IE7 more attractively */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+/* prevent BG image flicker upon hover 
+   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+*/
+
+/* let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }  
+.clearfix:after { clear: both; }  
+.clearfix { zoom: 1; } 
+
+* {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  	box-sizing: border-box; 
+}
+
+body {
+	background-color:#dde7ee;
+}
+
+blockquote {
+  background: #dde7ee;
+  border-left: 0.75rem solid #396b89;
+  margin: 1.5rem 0.75rem;
+  padding: 0.5rem 0.75rem;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+  color: #396b89;
+  content: open-quote;
+  font-size: 2rem;
+  line-height: 0.1rem;
+  margin-right: 0.25rem;
+  vertical-align: -0.5rem;
+}
+
+blockquote:after {
+  color: #396b89;
+  content: close-quote;
+  font-size: 2rem;
+  line-height: 0.1rem;
+  margin-right: 0.25rem;
+  vertical-align: -0.5rem;
+}
+
+blockquote p {
+  display: inline;
+}
+
+a, a:link {
+	color: #396b89;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #396b89;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #81a5ba;
+	text-decoration: none;
+}
+
+a:active {
+	color: #dde7ee;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 75rem;
+}
+
+.header, .footer {
+	padding: 1rem;
+	width: 100%; 
+}
+
+.header {
+	/* top: 2rem;
+	height: 6rem; */
+	float: left;
+	display: block;
+}
+
+.logged-in .header {
+	top: 4rem;
+}
+
+.header, .footer, .header a, .footer a {
+	background: #396b89;
+	color:#ffffff;
+	text-align: center;
+}
+
+.footer {
+	bottom: 0;
+	height: 3rem;
+}
+
+.site-title {
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+
+.site-title h1 {
+	color: #ffffff;
+	font-family: Amethysta;
+	font-size: 2rem;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 2rem;
+}
+
+.site-title a:link, .site-title a:visited, .site-title a:active {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.site-title a:hover {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+.tagline {
+	text-align: center;
+}
+
+.menu {
+	background: #202547;
+	height: 2rem;
+	width: 100%;
+	float: left;
+	margin-bottom: 0.75rem;
+/*	top: 0; */
+}
+
+/*.logged-in .menu {
+	top: 2rem;
+}*/
+
+.menu ul {
+	margin: 0;
+	padding: 0;
+}
+
+.menu li {
+	display: block;
+	float: left;
+	line-height: 2rem;
+	height: 2rem;
+	position: relative;
+	border-right-style: solid;
+	border-color: #396b89;
+	border-width: 1px;
+}
+
+.menu li a {
+	display: block;
+	height: 2rem;
+	line-height: 2rem;
+	padding: 0 1rem;
+	color: #dde7ee;
+	text-decoration: none;
+}
+
+.menu .current-menu-item a, .menu .current-page-item a {
+	color: #ffffff;
+	font-weight:600;
+}
+
+.menu a:hover {
+	background-color: #81a5ba;
+	color: #202547;
+}
+
+.menu ul ul {
+	display: none;
+	position: absolute;
+	top: 2rem;
+	background: #202547; 
+}
+
+.menu ul ul li {
+	float: none;
+	width: 14rem;
+}
+
+.menu ul ul li a {
+	padding: 0.25rem 0.5rem;
+}
+
+.menu ul li:hover > ul {
+	display: block;
+}
+
+.menu ul ul li ul {
+	left: 10rem;
+	top: 0;
+}
+
+.post_container, .search_container, .navigation_container, .social_container, .comments-area {
+	background-color: #ffffff;
+	color: #000000;
+	max-width: 50rem;
+	padding: 1rem;
+	margin: 1rem auto;
+	min-height: 1rem;
+	background-color: white;
+	box-shadow: 0 0 0.1875rem #396b89;
+	overflow: hidden;
+}
+
+.search_container, .navigation_container, .social_container {
+	text-align: center;
+}
+
+.navigation_container a {
+	color: #396b89;
+}
+
+.post_container img {
+	float: left;
+	margin-right: 1rem;
+}
+
+.text_right {
+	display: block;
+}
+
+.align_center {
+	display: inline;
+}
+
+.align_left {
+	float: left;
+}
+
+.align_right {
+	float: right;
+}
+
+.comments-area, .comment-list, .comment-form-comment {
+	margin: 1rem auto;
+}
+
+.social img {
+	height: 1.5rem;
+	width: 1.5rem;
+	float: right;
+}
+
+h1 {
+	font-family: Amethysta;
+	font-size: 2rem;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 3.236rem;
+	margin-bottom: 3.236rem;
+}
+
+.site-title h1, .site-title h2 {
+	margin-bottom: 0.2rem;
+}
+
+h2 {
+	font-family: Amethysta;
+	font-size: 1.618rem;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 1.618rem;
+	margin-bottom: 1.618rem;
+}
+
+h3 {
+	font-family: Amethysta;
+	font-size: 1rem;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 1.618rem;
+	margin-bottom: 1.618rem;
+}
+
+p, ul, ol, li {
+	font-family: Amethysta;
+	font-size: 1rem;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 1.618rem;
+	margin-bottom: 1.618rem;
+}
+
+ul, ol {
+	margin-left: 1rem;
+	padding: 1rem;
+}
+
+ul {
+	list-style-type: disc;
+}
+
+blockquote {
+	font-family: Amethysta;
+	font-size: 1rem
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 1.618rem;
+	margin-bottom: 1.618rem; display:inline-block;
+}
+
+pre {
+	font-family: Amethysta;
+	font-size: 0.6875rem;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 1.618rem;
+}
+
+small, .comment-meta, .site-info {
+	font-family: Amethysta;
+	font-size: 0.6875rem;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 1.618rem;
+	color: #7f7f7f;
+	display: block;
+	margin-bottom: 1.618rem;
+}
+
+.site-info {
+	color: #ffffff;
+	float: left;
+	margin: 0 auto;
+}
+
+/* MailChimp Override */
+#mc_embed_signup {
+	background:#fff;
+	clear:left;
+	font:14px Helvetica,Arial,sans-serif;
+	width:400px;
+	margin:auto;
+}
+
+#mc_embed_signup .button {
+	clear: both; 
+	background: #e6e6e6;
+	background-color: #aaa; 
+	border: 0 none; 
+	border-radius: 4px; 
+	color: #ffffff; 
+	cursor: pointer; 
+	display: inline-block; 
+	font-size: 15px; 
+	font-weight: bold; 
+	height: 32px; 
+	line-height: 32px; 
+	margin: 0 5px 10px 0;
+	padding: 0 22px; 
+	text-align: center; 
+	text-decoration: none;
+	vertical-align: top; 
+	white-space: nowrap; 
+	width: auto;
+}
+
+#mc_embed_signup div.clear {
+	clear: both;
+	text-align: center;
+}
+
+#mc_embed_signup input.email {
+	color: #000000;
+}
